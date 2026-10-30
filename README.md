@@ -21,7 +21,7 @@ Then visit http://localhost:8080. The enquiry form only works when the site is s
 
 ## Enquiry form
 
-The request-a-demo form posts to [FormSubmit](https://formsubmit.co), which emails each enquiry to InsightBridge Labs. The endpoint is set in `FORM_ENDPOINT` at the top of `app.js`.
+The request-a-demo form posts to `POST /regintel/submit` on InsightBridge Labs' own Cloudflare Worker (shared with insightbridgelabs.com's contact form), which sends the email itself via Resend. The endpoint is set in `FORM_ENDPOINT` at the top of `app.js`. Previously used FormSubmit, moved off it after its origin started returning HTTP 521 (unreliable third-party uptime) — see `cloudflare/cms-worker/README.md` in the `insightbridgelabs` repo for the backend.
 
 ## Content notes
 
